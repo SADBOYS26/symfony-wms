@@ -1,3 +1,5 @@
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+anton_wms:
+    resource: "@AntonWmsBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
