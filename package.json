@@ -43,6 +43,6 @@
     "webpack": "^1.12.11"
   },
   "dependencies": {
-    "uikit": "^3.0.0-beta.18"
+    "bootstrap": "^3.3.7"
   }
 }

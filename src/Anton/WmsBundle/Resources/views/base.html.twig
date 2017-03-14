@@ -1,29 +1,32 @@
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>{% block title %}ШАБЛОН{% endblock %} | WMS</title>
     {% block styles %}
         <link rel="stylesheet" href="{{ asset('css/common.css') }}" type="text/css">
         <link rel="stylesheet" href="{{ asset('css/'~app.request.attributes.get('_route')~'.css') }}" type="text/css">
     {% endblock %}
 </head>
-{% block header %}
-<header>
-    Хедер
-</header>
-{% endblock %}
-<main>
-    {% block main %}
-        Основная часть
+<body>
+    {% block header %}
+        <header>
+            Хедер
+        </header>
     {% endblock %}
-</main>
-{% block footer %}
-<footer>
-    Хедер
-</footer>
-{% endblock %}
+    <main>
+        {% block main %}
+            Основная часть
+        {% endblock %}
+    </main>
+    {% block footer %}
+        <footer>
+            Футер
+        </footer>
+    {% endblock %}
 {% block scripts%}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="{{ asset('js/common.js') }}"></script>
     <script src="{{ asset('js/'~app.request.attributes.get('_route')~'.js') }}"></script>
 {% endblock %}
+</body>
 </html>
