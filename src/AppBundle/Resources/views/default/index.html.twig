@@ -1,0 +1,10 @@
+{% extends '@App/base.html.twig' %}
+{% block title %}
+Главная страница {{ parent() }}
+{% endblock %}
+{% block body %}
+
+{% for item in result %}
+{{ item }}
+{% endfor %}
+{% endblock %}

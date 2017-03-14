@@ -34,13 +34,14 @@ module.exports = {
         //Если в качестве значения для точки входа указать массив, то они все будут объединены в один файл
         //но экспортирован в library будет только последний элемент массива. Это полезно при создании точки входа, которая объединяет в себе
         //только общие для страницы модули
-        common: './common'
+        common: './common',
+        homepage: './homepage'
     },
 
     //Настройки вывода собранных файлов
     output: {
         //Абсолютный (важно) путь до директории со сборкой. Все файлы сборки будут попадать именно в эту директорию
-        path: __dirname + '/htdocs/assets/build',
+        path: __dirname + '/web/assets/',
 
         //Имя файла сборки внутри path. Если используется шаблон, то [name] соответствует имени точки входа, а [id] - порядковый номер модуля
         filename: 'js/[name]' + (isProduction ? '.[chunkhash]' : '') + '.js',
@@ -89,9 +90,9 @@ module.exports = {
 
         new ExtractTextPlugin('css/[name]' + (isProduction ? '.[contenthash]' : '') + '.css'),
 
-        new AssetsPlugin({path: __dirname + '/htdocs/assets/build'}),
+        new AssetsPlugin({path: __dirname + '/web/assets'}),
 
-        new CleanWebpackPlugin(['htdocs/assets/build'])
+        new CleanWebpackPlugin(['/web/assets'])
     ],
 
     //Эта директива позволяет разрешать имена модулей.
