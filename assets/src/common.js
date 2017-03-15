@@ -1,2 +1,2 @@
 require('./modules/common.less');
-require('./dist/js/materialize')
+require('materialize-css/dist/js/materialize');
