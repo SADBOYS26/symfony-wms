@@ -1,2 +1,2 @@
 require('./modules/common.less');
-require('bootstrap/dist/js/bootstrap');
+require('./dist/js/materialize')

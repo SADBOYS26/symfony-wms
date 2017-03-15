@@ -41,8 +41,5 @@
     "underscore": "^1.8.3",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.11"
-  },
-  "dependencies": {
-    "bootstrap": "^3.3.7"
   }
 }
