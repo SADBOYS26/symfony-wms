@@ -1,5 +1,45 @@
 {% extends '@AntonWms/base.html.twig' %}
 {% block header %}{% endblock %}
 {% block title %}Главная страница{% endblock %}
-{% block main %}Форма входа{% endblock %}
+{% block main %}
+    <div class="row">
+    <div class="col s12">
+        <ul class="tabs">
+            <li class="tab col s3"><a href="#test1">Test 1</a></li>
+            <li class="tab col s3"><a class="active" href="#test2">Test 2</a></li>
+            <li class="tab col s3"><a href="#test3">Disabled Tab</a></li>
+            <li class="tab col s3"><a href="#test4">Test 4</a></li>
+        </ul>
+    </div>
+    <div id="test1" class="col s12">
+        <table class="responsive-table">
+            <thead>
+            <tr>
+                <th>Student</th><th>Class</th><th>Data #1</th>
+                <th>Data #2</th><th>Data #3</th><th>Data #4</th>
+                <th>Data #5</th><th>Data #6</th><th>Data #7</th>
+                <th>Data #8</th><th>Data #9</th><th>Data #10</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Mahesh Parashar</td><td>VI</td><td>10</td>
+                <td>11</td><td>12</td><td>13</td><td>14</td><td>15</td>
+                <td>16</td><td>17</td><td>19</td><td>20</td>
+            </tr>
+            <tr>
+                <td>Rahul Sharma</td><td>VI</td><td>10</td>
+                <td>11</td><td>12</td><td>13</td><td>14</td><td>15</td>
+                <td>16</td><td>17</td><td>19</td><td>20</td>
+            </tr>
+            <tr><td>Mohan Sood</td><td>VI</td><td>10</td>
+                <td>11</td><td>12</td><td>13</td><td>14</td><td>15</td>
+                <td>16</td><td>17</td><td>19</td><td>20</td>
+            </tr>
+            </tbody>
+        </table></div>
+    <div id="test2" class="col s12">Test 2</div>
+    <div id="test3" class="col s12">Test 3</div>
+    <div id="test4" class="col s12">Test 4</div>
+</div>{% endblock %}
 {% block footer %}{% endblock %}
