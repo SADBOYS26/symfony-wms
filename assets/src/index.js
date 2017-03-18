@@ -1,0 +1,1 @@
+require('./blocks/data_table/data_table');

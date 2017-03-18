@@ -43,6 +43,7 @@
     "webpack": "^1.12.11"
   },
   "dependencies": {
+    "datatables.net-dt": "^1.10.13",
     "materialize-css": "^0.98.0"
   }
 }

@@ -35,7 +35,8 @@ module.exports = {
         //но экспортирован в library будет только последний элемент массива. Это полезно при создании точки входа, которая объединяет в себе
         //только общие для страницы модули
         common: './common',
-        index: './index'
+        index: './index',
+        fos_user_security_login: './fos_user_security_login'
     },
 
     //Настройки вывода собранных файлов
@@ -165,8 +166,8 @@ module.exports = {
             },
             { test: /\.less$/,   loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!less' + (isProduction ? '?compress' : '')) },
 
-            { test: /\.(ttf|eot|woff|woff2)$/, include:/node_modules/,  loader: "file-loader?name=external[1].[ext]&regExp=node_modules(.*)" },
-            { test: /\.(ttf|eot|woff|woff2)$/, exclude:/node_modules/,  loader: "file-loader?name=[path][name].[ext]" },
+            { test: /\.(ttf|eot|woff|woff2)$/, include:/node_modules/,  loader: 'file-loader?name=[path][name].[ext]&regExp=node_modules(.*)' },
+            { test: /\.(ttf|eot|woff|woff2)$/, exclude:/node_modules/,  loader: 'file-loader?name=[path][name].[ext]' },
 
             { test: /\.(jpe?g|png|gif|svg)$/i, include:/node_modules/, loader: 'file-loader?name=external[1].[ext]&regExp=node_modules(.*)!img'  },
             { test: /\.(jpe?g|png|gif|svg)$/i, exclude:/node_modules/, loader: 'file-loader?name=[path][name].[ext]!img' },
