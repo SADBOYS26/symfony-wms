@@ -6,27 +6,27 @@
             <a href="#!" class="brand-logo">Logo</a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="side-nav" id="mobile-demo">
-                <li class="tab"><a class="active" href="#admin">Users</a></li>
-                <li class="tab"><a href="#test2">Test 2</a></li>
-                <li class="tab"><a href="#test3">Disabled Tab</a></li>
-                <li class="tab"><a href="#test4">Mobile</a></li>
+                <li class="tab"><a class="active" href="#admin">Пользователи</a></li>
+                <li class="tab"><a href="#test2">Учет товаров </a></li>
+                <li class="tab"><a href="#test3">Доставка</a></li>
+                <li class="tab"><a href="#test4">Оформление заказа</a></li>
             </ul>
         </div>
     </nav>
 {% endblock %}
 {% block main %}
-    <div class="col s12 hide-on-med-and-down">
+    <div class="col s12 hide-on-med-and-down teal lighten-2">
         <ul class="tabs">
-            <li class="tab col s3"><a class="active"  href="#admin">Users</a></li>
-            <li class="tab col s3"><a href="#test2">Test 2</a></li>
-            <li class="tab col s3"><a href="#test3">Disabled Tab</a></li>
-            <li class="tab col s3"><a href="#test4">Disabled Tab</a></li>
+            <li class="tab col s3"><a class="active"  href="#admin">Пользователи</a></li>
+            <li class="tab col s3"><a href="#test2">Учет товаров</a></li>
+            <li class="tab col s3"><a href="#test3">Доставка</a></li>
+            <li class="tab col s3"><a href="#test4">Оформление заказа</a></li>
         </ul>
     </div>
     <div id="admin" class="col s12">
         <div class="card material-table">
             <div class="table-header">
-                <span class="table-title">Material Datatable</span>
+                <span class="table-title">Пользователи</span>
                 <div class="actions">
                     <a href="#add_users" id="addRow" class="modal-trigger waves-effect btn-flat nopadding"><i class="material-icons">person_add</i></a>
                     <a href="#" class="search-toggle waves-effect btn-flat nopadding"><i class="material-icons">search</i></a>
@@ -36,10 +36,10 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>username</th>
+                    <th>Имя пользователя</th>
                     <th>email</th>
-                    <th>roles</th>
-                    <th>last login</th>
+                    <th>Роль</th>
+                    <th>Последний вход</th>
                 </tr>
                 </thead>
                 <tbody>
