@@ -6,21 +6,21 @@
             <a href="#!" class="brand-logo">Logo</a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="side-nav" id="mobile-demo">
-                <li><a href="#admin">Sass</a></li>
-                <li><a href="#test2">Components</a></li>
-                <li><a href="#test3">Javascript</a></li>
-                <li><a href="#test4">Mobile</a></li>
+                <li class="tab"><a class="active" href="#admin">Users</a></li>
+                <li class="tab"><a href="#test2">Test 2</a></li>
+                <li class="tab"><a href="#test3">Disabled Tab</a></li>
+                <li class="tab"><a href="#test4">Mobile</a></li>
             </ul>
         </div>
     </nav>
 {% endblock %}
 {% block main %}
-    <div class="col s12">
+    <div class="col s12 hide-on-med-and-down">
         <ul class="tabs">
             <li class="tab col s3"><a class="active"  href="#admin">Users</a></li>
             <li class="tab col s3"><a href="#test2">Test 2</a></li>
             <li class="tab col s3"><a href="#test3">Disabled Tab</a></li>
-            <li class="tab col s3"><a href="#test4">Test 4</a></li>
+            <li class="tab col s3"><a href="#test4">Disabled Tab</a></li>
         </ul>
     </div>
     <div id="admin" class="col s12">

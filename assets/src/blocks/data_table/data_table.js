@@ -204,4 +204,8 @@ $(document).ready(function() {
 
         counter++;
     } );
+
+
+    $('.side-nav').tabs();
 });
+
