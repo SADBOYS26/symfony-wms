@@ -1,3 +1,7 @@
 index:
     path:     /
     defaults: { _controller: AntonWmsBundle:Default:index }
+
+test:
+    path: /test
+    defaults: { _controller: AntonWmsBundle:Default:test }
