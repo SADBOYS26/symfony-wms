@@ -11,9 +11,19 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        $users = $this->getDoctrine()->getManager()->getRepository(User::class)->findAll();
+        return $this->render('AntonWmsBundle:Default:index.html.twig');
+    }
 
-        return $this->render('AntonWmsBundle:Default:index.html.twig', ['users' => $users]);
+    public function productsAction()
+    {
+        $products = $this->getDoctrine()->getManager()->getRepository(Product::class)->findAll();
+        return $this->render('AntonWmsBundle:Default:products.html.twig', ['products' => $products]);
+    }
+
+    public function usersAction()
+    {
+        $users = $this->getDoctrine()->getManager()->getRepository(User::class)->findAll();
+        return $this->render('AntonWmsBundle:Default:users.html.twig', ['users' => $users]);
     }
 
     public function testAction()

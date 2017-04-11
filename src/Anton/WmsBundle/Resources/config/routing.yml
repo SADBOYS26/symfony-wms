@@ -2,6 +2,10 @@ index:
     path:     /
     defaults: { _controller: AntonWmsBundle:Default:index }
 
+ajax:
+  prefix: /ajax
+  resource: '@AntonWmsBundle/Resources/config/routing_ajax.yml'
+
 test:
     path: /test
     defaults: { _controller: AntonWmsBundle:Default:test }

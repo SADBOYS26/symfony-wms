@@ -1,0 +1,33 @@
+<div id="products" class="col s12">
+    <div class="card material-table">
+        <div class="table-header">
+            <span class="table-title">Товары</span>
+            <div class="actions">
+                <a href="#add_users" id="addRow" class="modal-trigger waves-effect btn-flat nopadding"><i class="material-icons">person_add</i></a>
+                <a href="#" class="search-toggle waves-effect btn-flat nopadding"><i class="material-icons">search</i></a>
+            </div>
+        </div>
+        <table id="datatable">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Название</th>
+                <th>Вес</th>
+                <th>Штрих</th>
+                <th>Категория</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for product in products %}
+                <tr class="product-js" data-id="{{ product.id }}">
+                    <td>{{ product.id }}</td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.weight }}</td>
+                    <td>{{ product.barcode }}</td>
+                    <td>{{ product.category.name }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>

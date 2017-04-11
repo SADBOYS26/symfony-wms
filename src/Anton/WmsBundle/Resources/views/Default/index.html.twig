@@ -6,8 +6,8 @@
             <a href="#!" class="brand-logo">SQLad</a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="side-nav" id="mobile-demo">
-                <li class="tab"><a class="active" href="#admin">Пользователи</a></li>
-                <li class="tab"><a href="#test2">Учет товаров </a></li>
+                <li class="tab"><a class="active" href="#users">Пользователи</a></li>
+                <li class="tab"><a href="#products">Учет товаров </a></li>
                 <li class="tab"><a href="#test3">Доставка</a></li>
                 <li class="tab"><a href="#test4">Оформление заказа</a></li>
                 <li class="tab"><a href="#test4">Отчеты</a></li>
@@ -18,52 +18,21 @@
 {% block main %}
     <div class="col s12 hide-on-med-and-down teal lighten-2">
         <ul class="tabs">
-            <li class="tab col s3"><a class="active"  href="#admin">Пользователи</a></li>
-            <li class="tab col s3"><a href="#test2">Учет товаров</a></li>
+            <li class="tab col s3"><a class="active"  href="#users">Пользователи</a></li>
+            <li class="tab col s3"><a href="#products">Учет товаров</a></li>
             <li class="tab col s3"><a href="#test3">Доставка</a></li>
             <li class="tab col s3"><a href="#test4">Оформление заказа</a></li>
             <li class="tab"><a href="#test4">Отчеты</a></li>
         </ul>
     </div>
-    <div id="admin" class="col s12">
-        <div class="card material-table">
-            <div class="table-header">
-                <span class="table-title">Пользователи</span>
-                <div class="actions">
-                    <a href="#add_users" id="addRow" class="modal-trigger waves-effect btn-flat nopadding"><i class="material-icons">person_add</i></a>
-                    <a href="#" class="search-toggle waves-effect btn-flat nopadding"><i class="material-icons">search</i></a>
-                </div>
-            </div>
-            <table id="datatable">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Имя пользователя</th>
-                    <th>email</th>
-                    <th>Роль</th>
-                    <th>Последний вход</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for user in users %}
-                    <tr>
-                        <td>{{ user.id }}</td>
-                        <td>{{ user.username }}</td>
-                        <td>{{ user.email }}</td>
-                        <td>
-                            {{ user.roles|join(', ') }}
-                        </td>
-                        <td>
-                            {{ user.lastLogin|date('d.m.Y') }}
-                        </td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div id="test2" class="col s12">Test 2</div>
+    {{ render(controller('AntonWmsBundle:Default:users')) }}
+    {{ render(controller('AntonWmsBundle:Default:products')) }}
     <div id="test3" class="col s12">Test 3</div>
     <div id="test4" class="col s12">Test 4</div>
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal modal-fixed-footer popup">
+
+    </div>
+    <div class="popup-shadow"></div>
 {% endblock %}
 {% block footer %}{% endblock %}
