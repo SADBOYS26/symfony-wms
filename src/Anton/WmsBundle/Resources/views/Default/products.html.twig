@@ -15,16 +15,20 @@
                 <th>Вес</th>
                 <th>Штрих</th>
                 <th>Категория</th>
+                <th></th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
             {% for product in products %}
-                <tr class="product-js" data-id="{{ product.id }}">
+                <tr>
                     <td>{{ product.id }}</td>
                     <td>{{ product.name }}</td>
                     <td>{{ product.weight }}</td>
                     <td>{{ product.barcode }}</td>
                     <td>{{ product.category.name }}</td>
+                    <td><div class="product-js-show" data-id="{{ product.id }}">Показать</div></td>
+                    <td><div class="product-js-edit" data-id="{{ product.id }}">Изменить</div></td>
                 </tr>
             {% endfor %}
             </tbody>

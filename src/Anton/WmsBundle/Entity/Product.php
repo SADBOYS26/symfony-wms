@@ -63,9 +63,12 @@ class Product
      */
     private $propertyValues;
 
+    private $properties;
+
     public function __construct()
     {
         $this->propertyValues = new ArrayCollection();
+        $this->properties = new ArrayCollection();
     }
 
     /**
@@ -168,6 +171,11 @@ class Product
         $this->propertyValues->removeElement($propertyValue);
 
         return $this;
+    }
+
+    public function getProperties()
+    {
+        return $this->getCategory()->getProperties();
     }
 }
 

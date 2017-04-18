@@ -1,10 +1,11 @@
 require('./popup.less');
 export default class Popup
 {
-    constructor(route, id)
+    constructor(route, id, data = null)
     {
         this.route = route;
         this.id = id;
+        this.data = data;
         this.content = '';
         this.events();
     }
@@ -14,7 +15,7 @@ export default class Popup
         $.ajax({
             type: 'post',
             url: '/ajax/' + this.route + '/' + this.id,
-            data: '',
+            data: this.data,
             success: (response) => {
                 this.render(response)
             }

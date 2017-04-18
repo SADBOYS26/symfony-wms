@@ -2,4 +2,10 @@ product_detail:
   path: /product_detail/{id}
   defaults: { _controller: AntonWmsBundle:Ajax:ProductDetail }
   requirements:
-       page: '\d+'
+       id: '\d+'
+
+product_edit:
+  path: /product_edit/{id}
+  defaults: { _controller: AntonWmsBundle:Ajax:ProductEdit }
+  requirements:
+       id: '\d+'
