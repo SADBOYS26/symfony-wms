@@ -1,0 +1,41 @@
+services:
+    app.admin.user:
+        class: Anton\WmsBundle\Admin\UserAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "WMS", label: "Пользователи" }
+        arguments:
+            - ~
+            - Anton\WmsBundle\Entity\User
+            - ~
+    app.admin.product:
+        class: Anton\WmsBundle\Admin\ProductAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "WMS", label: "Продукты" }
+        arguments:
+            - ~
+            - Anton\WmsBundle\Entity\Product
+            - ~
+    app.admin.category:
+        class: Anton\WmsBundle\Admin\CategoryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "WMS", label: "Категории" }
+        arguments:
+            - ~
+            - Anton\WmsBundle\Entity\Category
+            - ~
+    app.admin.property:
+        class: Anton\WmsBundle\Admin\PropertyAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "WMS", label: "Свойства" }
+        arguments:
+            - ~
+            - Anton\WmsBundle\Entity\Property
+            - ~
+    app.admin.property_values:
+        class: Anton\WmsBundle\Admin\PropertyValuesAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "WMS", label: "Значения свойств" }
+        arguments:
+            - ~
+            - Anton\WmsBundle\Entity\ProductPropertyValue
+            - ~

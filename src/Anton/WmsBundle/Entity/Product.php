@@ -63,12 +63,14 @@ class Product
      */
     private $propertyValues;
 
-    private $properties;
-
     public function __construct()
     {
         $this->propertyValues = new ArrayCollection();
-        $this->properties = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 
     /**

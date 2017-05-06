@@ -3,8 +3,8 @@
     <meta charset="UTF-8">
     <title>{% block title %}ШАБЛОН{% endblock %} | WMS</title>
     {% block styles %}
-        <link rel="stylesheet" href="{{ asset('css/common.css') }}" type="text/css">
-        <link rel="stylesheet" href="{{ asset('css/'~app.request.attributes.get('_route')~'.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('/build/css/common.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('/build/css/'~app.request.attributes.get('_route')~'.css') }}" type="text/css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     {% endblock %}
 </head>
@@ -24,8 +24,8 @@
     {% endblock %}
 {% block scripts%}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="{{ asset('js/common.js') }}"></script>
-    <script src="{{ asset('js/'~app.request.attributes.get('_route')~'.js') }}"></script>
+    <script src="{{ asset('/build/js/common.js') }}"></script>
+    <script src="{{ asset('/build/js/'~app.request.attributes.get('_route')~'.js') }}"></script>
 {% endblock %}
 </body>
 </html>

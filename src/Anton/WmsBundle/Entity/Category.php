@@ -32,7 +32,7 @@ class Category
     /**
      * @var Property[]|ArrayCollection
      *
-     * @ORM\ManyToMany(targetEntity="Property", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="Property", inversedBy="categories", cascade={"persist"})
      * @ORM\JoinTable(name="category_property")
      */
     private $properties;
@@ -40,6 +40,11 @@ class Category
     public function __construct()
     {
         $this->properties = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 
     /**

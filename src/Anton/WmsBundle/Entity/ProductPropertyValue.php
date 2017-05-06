@@ -45,6 +45,11 @@ class ProductPropertyValue
      */
     private $property;
 
+    public function __toString()
+    {
+        return $this->property->getName() . ' : ' . $this->getValue();
+    }
+
     /**
      * Get id
      *
