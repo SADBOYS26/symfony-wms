@@ -19,7 +19,8 @@ class CategoryAdmin extends AbstractAdmin
             ->add('properties', 'sonata_type_model', [
                 'label' => 'Свойства',
                 'by_reference' => false,
-                'multiple' => true
+                'multiple' => true,
+                'expanded' => true
             ]);
     }
 

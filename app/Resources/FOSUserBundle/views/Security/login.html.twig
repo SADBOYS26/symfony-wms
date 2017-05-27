@@ -3,51 +3,33 @@
 {% block title %}Вход{% endblock %}
 {% block header %}{% endblock %}
 {% block footer %}{% endblock %}
-
-
 {% block fos_user_content %}
-    <div class="section"></div>
-    <div class="section"></div>
-    <div class="section"></div>
-    <div class="section"></div>
-    <center>
-        <div class="responsive-img"></div>
-        <div class="section"></div>
-    <div class="container">
-    <div class="z-depth-1 grey lighten-4 row login_form__main">
-      <form class="col s12" action="{{ path("fos_user_security_check") }}" method="post">
-          <div class='row'>
-              <div class='col s12'>
-              </div>
-          </div>
-            {% if csrf_token %}
-                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-            {% endif %}
-          <div class='row'>
-              <div class="input-field col s12">
-                  <label for="username">{{ 'security.login.username'|trans }}</label>
-                  <input class='validate' type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
-              </div>
-          </div>
-          <div class='row'>
-              <div class="input-field col s12">
-            <label for="password">{{ 'security.login.password'|trans }}</label>
-            <input class="validate" type="password" id="password" name="_password" required="required" />
-              </div>
-          </div>
-          <div class="row">
-            <input  type="checkbox" id="remember_me" name="_remember_me" value="on" />
-              <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
-          </div>
-          <div class='row'>
-            <input class='col s12 btn-large' type="submit" id="_submit" name="btn-large" value="{{ 'security.login.submit'|trans }}" />
-          </div>
-      </form>
-    </div>
-        {% if error %}
-            <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-        {% endif %}
-    </center>
+    {% trans_default_domain 'FOSUserBundle' %}
 
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+<div class="uk-flex uk-flex-middle uk-flex-center uk-text-center uk-height-1-1">
+    <form class="uk-form login__form uk-vertical-align-middle" action="{{ path("fos_user_security_check") }}" method="post">
+        {% if csrf_token %}
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+        {% endif %}
+        <div class="uk-form-row">
+            <label for="username">{{ 'security.login.username'|trans }}</label>
+            <input class="uk-input" type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+        </div>
+        <div class="uk-form-row">
+            <label for="password">{{ 'security.login.password'|trans }}</label>
+            <input class="uk-input" type="password" id="password" name="_password" required="required" />
+        </div>
+        <div class="uk-form-row">
+            <input class="uk-checkbox" type="checkbox" id="remember_me" name="_remember_me" value="on" />
+            <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+        </div>
+        <div class="uk-form-row">
+            <input class="uk-button uk-button-default" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+        </div>
+    </form>
+</div>
 {% endblock fos_user_content %}
 

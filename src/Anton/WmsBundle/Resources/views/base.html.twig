@@ -1,14 +1,14 @@
-<html>
+<html class="uk-height-1-1 uk-notouch">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}ШАБЛОН{% endblock %} | WMS</title>
     {% block styles %}
-        <link rel="stylesheet" href="{{ asset('/build/css/common.css') }}" type="text/css">
-        <link rel="stylesheet" href="{{ asset('/build/css/'~app.request.attributes.get('_route')~'.css') }}" type="text/css">
+        <link rel="stylesheet" href="/assets/style.css" type="text/css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.24/css/uikit.min.css" />
     {% endblock %}
 </head>
-<body>
+<body class="uk-height-1-1">
     {% block header %}
         <header>
             хедер
@@ -24,8 +24,9 @@
     {% endblock %}
 {% block scripts%}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="{{ asset('/build/js/common.js') }}"></script>
-    <script src="{{ asset('/build/js/'~app.request.attributes.get('_route')~'.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.24/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.24/js/uikit-icons.min.js"></script>
+    <script src="/assets/script.js"></script>
 {% endblock %}
 </body>
 </html>

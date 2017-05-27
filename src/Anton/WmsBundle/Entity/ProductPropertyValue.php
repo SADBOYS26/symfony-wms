@@ -47,7 +47,7 @@ class ProductPropertyValue
 
     public function __toString()
     {
-        return $this->property->getName() . ' : ' . $this->getValue();
+        return ($this->value) ? $this->property->getName() . ' : ' . $this->getValue() : '';
     }
 
     /**

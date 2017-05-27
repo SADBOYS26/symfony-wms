@@ -37,33 +37,34 @@ class Category
      */
     private $properties;
 
+    /**
+     * @var Product[]|ArrayCollection
+     *
+     * @ORM\OneToMany(
+     *      targetEntity="Product",
+     *      mappedBy="category",
+     *      orphanRemoval=true,
+     *      cascade={"persist"}
+     * )
+     */
+    private $products;
+
     public function __construct()
     {
         $this->properties = new ArrayCollection();
+        $this->products = new ArrayCollection();
     }
 
     public function __toString()
     {
-        return $this->name;
+        return $this->name ?: '';
     }
 
-    /**
-     * Get id
-     *
-     * @return int
-     */
     public function getId()
     {
         return $this->id;
     }
 
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return Category
-     */
     public function setName($name)
     {
         $this->name = $name;
@@ -71,11 +72,6 @@ class Category
         return $this;
     }
 
-    /**
-     * Get name
-     *
-     * @return string
-     */
     public function getName()
     {
         return $this->name;
@@ -100,6 +96,19 @@ class Category
     public function getProperties()
     {
         return $this->properties;
+    }
+
+    public function getProducts()
+    {
+        return $this->products;
+    }
+
+    public function addProduct(Product $product)
+    {
+        $this->products->add($product);
+        $product->setCategory($this);
+
+        return $this;
     }
 }
 

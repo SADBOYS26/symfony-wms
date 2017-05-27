@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="product")
  * @ORM\Entity(repositoryClass="Anton\WmsBundle\Repository\ProductRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Product
 {
@@ -30,13 +31,6 @@ class Product
     private $name;
 
     /**
-     * @var float
-     *
-     * @ORM\Column(name="weight", type="float")
-     */
-    private $weight;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="barcode", type="string", length=255)
@@ -46,7 +40,7 @@ class Product
     /**
      * @var Category
      *
-     * @ORM\ManyToOne(targetEntity="Category", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Category", cascade={"persist"}, inversedBy="products")
      * @ORM\JoinColumn(nullable=false)
      */
     private $category;
@@ -62,6 +56,20 @@ class Product
      * )
      */
     private $propertyValues;
+
+    /**
+     * @ORM\PrePersist
+     * @Orm\PreUpdate
+     */
+    public function lifecycle()
+    {
+        $properties = $this->getCategory()->getProperties();
+        foreach ($properties as $property) {
+            $propertyValue = new ProductPropertyValue();
+            $propertyValue->setProperty($property);
+            $this->addPropertyValue($propertyValue);
+        }
+    }
 
     public function __construct()
     {
@@ -107,30 +115,6 @@ class Product
         return $this->name;
     }
 
-    /**
-     * Set weight
-     *
-     * @param float $weight
-     *
-     * @return Product
-     */
-    public function setWeight($weight)
-    {
-        $this->weight = $weight;
-
-        return $this;
-    }
-
-    /**
-     * Get weight
-     *
-     * @return float
-     */
-    public function getWeight()
-    {
-        return $this->weight;
-    }
-
     public function setBarcode($barcode)
     {
         $this->barcode = $barcode;
@@ -162,8 +146,8 @@ class Product
 
     public function addPropertyValue(ProductPropertyValue $propertyValue)
     {
-        $propertyValue->setProduct($this);
         $this->propertyValues->add($propertyValue);
+        $propertyValue->setProduct($this);
 
         return $this;
     }
@@ -177,7 +161,11 @@ class Product
 
     public function getProperties()
     {
-        return $this->getCategory()->getProperties();
+        $props = new ArrayCollection();
+        foreach ($this->getPropertyValues() as $propertyValue) {
+            $props->add($propertyValue->getProperty());
+        }
+        return $props;
     }
 }
 

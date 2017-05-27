@@ -14,7 +14,8 @@ class ProductAdmin extends AbstractAdmin
     {
         $formMapper
             ->add('name', 'text', [
-                'label' => 'Название'
+                'label' => 'Название',
+                'required' => false
             ])
             ->add('barcode', 'text', [
                 'label' => 'Штрихкод'
