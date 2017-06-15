@@ -24,40 +24,4 @@ class PropertyValuesAdmin extends AbstractAdmin
                 'required' => false
             ]);
     }
-
-    protected function configureDatagridFilters(DatagridMapper $datagridMapper): void
-    {
-        $datagridMapper
-            ->add('id', null, [
-                'label' => 'Название'
-            ]);
-    }
-    protected function configureListFields(ListMapper $listMapper): void
-    {
-        $listMapper
-            ->add('property', 'text', [
-                'label' => 'Название'
-            ])
-            ->add('product', 'text', [
-                'label' => 'Товар'
-            ])
-            ->add('value', 'text', [
-                'label' => 'Значение'
-            ])
-            ->add('_action', null, [
-                'label' => ' ',
-                'actions' => [
-                    'show' => [],
-                    'edit' => [],
-                    'delete' => [],
-                ]
-            ]);
-    }
-    protected function configureShowFields(ShowMapper $showMapper): void
-    {
-        $showMapper
-            ->add('id', 'text', [
-                'label' => 'Название'
-            ]);
-    }
 }

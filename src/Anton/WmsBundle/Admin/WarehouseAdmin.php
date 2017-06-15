@@ -37,6 +37,17 @@ class WarehouseAdmin extends AbstractAdmin
                 'edit' => 'inline',
                 'inline' => 'table',
                 'sortable' => 'position',
+            ))
+            ->add('maps', 'sonata_type_collection', array(
+                'label' => 'Карта',
+                'by_reference' => false,
+                'type_options' => array(
+                    'delete' => true
+                )
+            ), array(
+                'edit' => 'inline',
+                'inline' => 'table',
+                'sortable' => 'position',
             ));
     }
 

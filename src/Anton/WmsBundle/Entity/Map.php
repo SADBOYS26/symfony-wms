@@ -39,11 +39,11 @@ class Map
     private $warehouse;
 
     /**
-     * @var boolean
+     * @var Product
      *
-     * @ORM\Column(name="reserve", type="boolean")
+     * @ORM\OneToOne(targetEntity="Anton\WmsBundle\Entity\Product")
      */
-    private $reserve;
+    private $product;
 
     public function getId()
     {
@@ -96,15 +96,15 @@ class Map
         return $this;
     }
 
-    public function getReserve()
+    public function setProduct($product)
     {
-        return $this->reserve;
-    }
-
-    public function setReserve(bool $reserve)
-    {
-        $this->reserve = $reserve;
+        $this->product = $product;
 
         return $this;
+    }
+
+    public function getProduct()
+    {
+        return $this->product;
     }
 }

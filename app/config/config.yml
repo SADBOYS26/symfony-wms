@@ -90,3 +90,28 @@ sonata_block:
         # enable the SonataAdminBundle block
         sonata.admin.block.admin_list:
             contexts: [admin]
+sonata_admin:
+  templates:
+    layout:  AntonWmsBundle::admin.base.html.twig
+  dashboard:
+    groups:
+      WMS:
+        label:                ~
+        label_catalogue:      ~
+        items:
+            - app.admin.user
+            - route:        product_receipt
+              label:        "Приход товара"
+      products:
+        label: "Продукты"
+        items:
+          - app.admin.product
+          - app.admin.category
+          - app.admin.property
+      warehoses:
+        label: "Склады"
+        items:
+          - app.admin.warehouse
+          - app.admin.warehouse_category
+          - app.admin.warehouse_property
+

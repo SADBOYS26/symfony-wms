@@ -74,7 +74,7 @@ services:
     app.admin.map:
         class: Anton\WmsBundle\Admin\MapAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "WMS", label: "Карта" }
+            - { name: sonata.admin, show_in_dashboard: false, manager_type: orm, group: "WMS", label: "Карта" }
         arguments:
             - ~
             - Anton\WmsBundle\Entity\Map

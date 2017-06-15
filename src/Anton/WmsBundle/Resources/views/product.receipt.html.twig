@@ -1,0 +1,27 @@
+{% extends "@AntonWms/admin.base.html.twig" %}
+{% block sonata_head_title %}Приход товара{% endblock %}
+{% block content %}
+    <div class="uk-grid-divider uk-child-width-expand@s" uk-grid>
+        <div>
+            <h2>Склад</h2>
+            <div class="wholesale__category">
+                <label for="wholesale-category">Категория склада</label>
+                <select id="wholesale-category">
+                    <option>Не выбрано</option>
+                    {% for category in categories %}
+                    <option value="{{ category.id }}">{{ category.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="wholesale">
+                <label for="wholesale">Склад</label>
+                <select id="wholesale">
+                    <option>Не выбрано</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <h2>Товар</h2>
+        </div>
+    </div>
+{% endblock %}

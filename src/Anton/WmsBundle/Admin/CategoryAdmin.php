@@ -20,7 +20,8 @@ class CategoryAdmin extends AbstractAdmin
                 'label' => 'Свойства',
                 'by_reference' => false,
                 'multiple' => true,
-                'expanded' => true
+                'expanded' => true,
+                'btn_delete' => 'Удалить'
             ])
             ->add('warehouseCategory', 'sonata_type_model', [
                 'label' => 'Категории скаладов',

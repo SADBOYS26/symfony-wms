@@ -1,6 +1,6 @@
 anton_wms:
     resource: "@AntonWmsBundle/Resources/config/routing.yml"
-    prefix:   /anton
+    prefix:   /
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"

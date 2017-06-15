@@ -158,7 +158,7 @@ class Warehouse
         return $this->maps;
     }
 
-    public function addMaps(Map $map)
+    public function addMap(Map $map)
     {
         $map->setWarehouse($this);
         $this->maps->add($map);
@@ -166,11 +166,28 @@ class Warehouse
         return $this;
     }
 
-    public function removeMaps(Map $map)
+    public function removeMap(Map $map)
     {
         $this->maps->removeElement($map);
 
         return $this;
+    }
+
+    public function getFreeMap()
+    {
+        $freeMap = new ArrayCollection();
+        foreach ($this->maps as $map) {
+            if(empty($map->getProduct())){
+                $freeMap->add($map);
+            }
+        }
+
+        return $freeMap;
+    }
+
+    public function getFreeMapCount()
+    {
+        return count($this->getFreeMap());
     }
 
     public function getProperties()

@@ -125,7 +125,7 @@ class Category
 
     public function getWarehouseCategory()
     {
-        return $this->properties;
+        return $this->warehouseCategory;
     }
 
     public function getProducts()
