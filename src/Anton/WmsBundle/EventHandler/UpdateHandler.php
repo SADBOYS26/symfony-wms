@@ -5,6 +5,9 @@ namespace Anton\WmsBundle\EventHandler;
 use Anton\WmsBundle\Entity\Category;
 use Anton\WmsBundle\Entity\Product;
 use Anton\WmsBundle\Entity\ProductPropertyValue;
+use Anton\WmsBundle\Entity\Warehouse;
+use Anton\WmsBundle\Entity\WarehouseCategory;
+use Anton\WmsBundle\Entity\WarehousePropertyValue;
 use Doctrine\ORM\Event\OnFlushEventArgs;
 use Symfony\Component\DependencyInjection\Container;
 
@@ -32,6 +35,19 @@ class UpdateHandler
                         if(!$product->getProperties()->contains($property)){
                             $newPropertyValue = new ProductPropertyValue();
                             $newPropertyValue->setProperty($property)->setProduct($product);
+                            $em->persist($newPropertyValue);
+                        }
+                    }
+                }
+            }
+            if ($entity instanceof WarehouseCategory) {
+                $products = $em->getRepository(Warehouse::class)->findBy(['category' => $entity->getId()]);
+                $properties = $entity->getProperties();
+                foreach ($products as $product){
+                    foreach ($properties as $property){
+                        if(!$product->getProperties()->contains($property)){
+                            $newPropertyValue = new WarehousePropertyValue();
+                            $newPropertyValue->setProperty($property)->setWarehouse($product);
                             $em->persist($newPropertyValue);
                         }
                     }

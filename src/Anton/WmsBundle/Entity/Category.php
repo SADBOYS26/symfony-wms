@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Category
  *
  * @ORM\Table(name="category")
- * @ORM\Entity(repositoryClass="Anton\WmsBundle\Repository\CategoryRepository")
+ * @ORM\Entity()
  */
 class Category
 {
@@ -49,10 +49,19 @@ class Category
      */
     private $products;
 
+    /**
+     * @var WarehouseCategory[]|ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="Anton\WmsBundle\Entity\WarehouseCategory", cascade={"persist"})
+     * @ORM\JoinTable(name="category_warehouse_category")
+     */
+    private $warehouseCategory;
+
     public function __construct()
     {
         $this->properties = new ArrayCollection();
         $this->products = new ArrayCollection();
+        $this->warehouseCategory = new ArrayCollection();
     }
 
     public function __toString()
@@ -94,6 +103,27 @@ class Category
     }
 
     public function getProperties()
+    {
+        return $this->properties;
+    }
+
+    public function addWarehouseCategory(WarehouseCategory $warehouseCategory)
+    {
+        if (!$this->warehouseCategory->contains($warehouseCategory)) {
+            $this->warehouseCategory->add($warehouseCategory);
+        }
+
+        return $this;
+    }
+
+    public function removeWarehouseCategory(WarehouseCategory $warehouseCategory)
+    {
+        $this->warehouseCategory->removeElement($warehouseCategory);
+
+        return $this;
+    }
+
+    public function getWarehouseCategory()
     {
         return $this->properties;
     }

@@ -7,10 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * ProductPropertyValue
  *
- * @ORM\Table(name="product_property_value")
+ * @ORM\Table(name="warehouse_property_value")
  * @ORM\Entity()
  */
-class ProductPropertyValue
+class WarehousePropertyValue
 {
     /**
      * @var int
@@ -30,17 +30,17 @@ class ProductPropertyValue
 
 
     /**
-     * @var Product
+     * @var Warehouse
      *
-     * @ORM\ManyToOne(targetEntity="Product", cascade={"persist"}, inversedBy="propertyValues")
+     * @ORM\ManyToOne(targetEntity="Anton\WmsBundle\Entity\Warehouse", cascade={"persist"}, inversedBy="propertyValues")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $product;
+    private $warehouse;
 
     /**
-     * @var Property
+     * @var WarehouseProperty
      *
-     * @ORM\ManyToOne(targetEntity="Property", cascade={"persist"}, inversedBy="propertyValues")
+     * @ORM\ManyToOne(targetEntity="Anton\WmsBundle\Entity\WarehouseProperty", cascade={"persist"}, inversedBy="propertyValues")
      * @ORM\JoinColumn(nullable=false)
      */
     private $property;
@@ -65,7 +65,7 @@ class ProductPropertyValue
      *
      * @param string $value
      *
-     * @return ProductPropertyValue
+     * @return WarehousePropertyValue
      */
     public function setValue($value)
     {
@@ -84,14 +84,14 @@ class ProductPropertyValue
         return $this->value;
     }
 
-    public function getProduct()
+    public function getWarehouse()
     {
-        return $this->product;
+        return $this->warehouse;
     }
 
-    public function setProduct(Product $product)
+    public function setWarehouse(Warehouse $warehouse)
     {
-        $this->product = $product;
+        $this->warehouse = $warehouse;
 
         return $this;
     }
@@ -101,7 +101,7 @@ class ProductPropertyValue
         return $this->property;
     }
 
-    public function setProperty(Property $property)
+    public function setProperty(WarehouseProperty $property)
     {
         $this->property = $property;
 

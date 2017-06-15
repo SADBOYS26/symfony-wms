@@ -8,25 +8,13 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 
-class CategoryAdmin extends AbstractAdmin
+class WarehousePropertyAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $formMapper): void
     {
         $formMapper
             ->add('name', 'text', [
                 'label' => 'Название'
-            ])
-            ->add('properties', 'sonata_type_model', [
-                'label' => 'Свойства',
-                'by_reference' => false,
-                'multiple' => true,
-                'expanded' => true
-            ])
-            ->add('warehouseCategory', 'sonata_type_model', [
-                'label' => 'Категории скаладов',
-                'by_reference' => false,
-                'multiple' => true,
-                'expanded' => true
             ]);
     }
 
@@ -43,6 +31,11 @@ class CategoryAdmin extends AbstractAdmin
             ->add('name', 'text', [
                 'label' => 'Название'
             ])
+            ->add('categories', 'sonata_type_model', [
+                'label' => 'Категории',
+                'by_reference' => false,
+                'multiple' => true
+            ])
             ->add('_action', null, [
                 'label' => ' ',
                 'actions' => [
@@ -57,6 +50,11 @@ class CategoryAdmin extends AbstractAdmin
         $showMapper
             ->add('name', 'text', [
                 'label' => 'Название'
+            ])
+            ->add('categories', 'sonata_type_model', [
+                'label' => 'Категории',
+                'by_reference' => false,
+                'multiple' => true
             ]);
     }
 }

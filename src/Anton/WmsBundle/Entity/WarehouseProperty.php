@@ -5,13 +5,11 @@ namespace Anton\WmsBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Property
- *
- * @ORM\Table(name="property")
+/** *
+ * @ORM\Table(name="warehouse_property")
  * @ORM\Entity()
  */
-class Property
+class WarehouseProperty
 {
     /**
      * @var int
@@ -30,17 +28,17 @@ class Property
     private $name;
 
     /**
-     * @var Category[]|ArrayCollection
+     * @var WarehouseCategory[]|ArrayCollection
      *
-     * @ORM\ManyToMany(targetEntity="Category", mappedBy="properties", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="Anton\WmsBundle\Entity\WarehouseCategory", mappedBy="properties", cascade={"persist"})
      */
     private $categories;
 
     /**
-     * @var ProductPropertyValue[]|ArrayCollection
+     * @var WarehousePropertyValue[]|ArrayCollection
      *
      * @ORM\OneToMany(
-     *      targetEntity="ProductPropertyValue",
+     *      targetEntity="Anton\WmsBundle\Entity\WarehousePropertyValue",
      *      mappedBy="property",
      *      orphanRemoval=true,
      *      cascade={"persist"}
@@ -74,7 +72,7 @@ class Property
      *
      * @param string $name
      *
-     * @return Property
+     * @return WarehouseProperty
      */
     public function setName($name)
     {

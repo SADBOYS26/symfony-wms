@@ -8,40 +8,41 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 
-class CategoryAdmin extends AbstractAdmin
+class WarehousePropertyValuesAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $formMapper): void
     {
         $formMapper
-            ->add('name', 'text', [
-                'label' => 'Название'
+            ->add('property', 'sonata_type_model_list', [
+                'label' => 'Название',
+                'btn_add'       => false,
+                'btn_delete'    => false,
+                'btn_list'    => false
             ])
-            ->add('properties', 'sonata_type_model', [
-                'label' => 'Свойства',
-                'by_reference' => false,
-                'multiple' => true,
-                'expanded' => true
-            ])
-            ->add('warehouseCategory', 'sonata_type_model', [
-                'label' => 'Категории скаладов',
-                'by_reference' => false,
-                'multiple' => true,
-                'expanded' => true
+            ->add('value', 'text', [
+                'label' => 'Значение',
+                'required' => false
             ]);
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper): void
     {
         $datagridMapper
-            ->add('name', null, [
+            ->add('id', null, [
                 'label' => 'Название'
             ]);
     }
     protected function configureListFields(ListMapper $listMapper): void
     {
         $listMapper
-            ->add('name', 'text', [
+            ->add('property', 'text', [
                 'label' => 'Название'
+            ])
+            ->add('product', 'text', [
+                'label' => 'Товар'
+            ])
+            ->add('value', 'text', [
+                'label' => 'Значение'
             ])
             ->add('_action', null, [
                 'label' => ' ',
@@ -55,7 +56,7 @@ class CategoryAdmin extends AbstractAdmin
     protected function configureShowFields(ShowMapper $showMapper): void
     {
         $showMapper
-            ->add('name', 'text', [
+            ->add('id', 'text', [
                 'label' => 'Название'
             ]);
     }

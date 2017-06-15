@@ -10,7 +10,7 @@ services:
     app.admin.product:
         class: Anton\WmsBundle\Admin\ProductAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "WMS", label: "Продукты" }
+            - { name: sonata.admin, manager_type: orm, group: "Продукты", label: "Продукты" }
         arguments:
             - ~
             - Anton\WmsBundle\Entity\Product
@@ -18,7 +18,7 @@ services:
     app.admin.category:
         class: Anton\WmsBundle\Admin\CategoryAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "WMS", label: "Категории" }
+            - { name: sonata.admin, manager_type: orm, group: "Продукты", label: "Категории" }
         arguments:
             - ~
             - Anton\WmsBundle\Entity\Category
@@ -26,7 +26,7 @@ services:
     app.admin.property:
         class: Anton\WmsBundle\Admin\PropertyAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "WMS", label: "Свойства" }
+            - { name: sonata.admin, manager_type: orm, group: "Продукты", label: "Свойства" }
         arguments:
             - ~
             - Anton\WmsBundle\Entity\Property
@@ -34,8 +34,48 @@ services:
     app.admin.property_values:
         class: Anton\WmsBundle\Admin\PropertyValuesAdmin
         tags:
-            - { name: sonata.admin, show_in_dashboard: false, manager_type: orm, group: "WMS", label: "Значения свойств" }
+            - { name: sonata.admin, show_in_dashboard: false, manager_type: orm, group: "Склады", label: "Значения свойств" }
         arguments:
             - ~
             - Anton\WmsBundle\Entity\ProductPropertyValue
+            - ~
+    app.admin.warehouse:
+        class: Anton\WmsBundle\Admin\WarehouseAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Склады", label: "Склады" }
+        arguments:
+            - ~
+            - Anton\WmsBundle\Entity\Warehouse
+            - ~
+    app.admin.warehouse_category:
+        class: Anton\WmsBundle\Admin\WarehouseCategoryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Склады", label: "Категории" }
+        arguments:
+            - ~
+            - Anton\WmsBundle\Entity\WarehouseCategory
+            - ~
+    app.admin.warehouse_property:
+        class: Anton\WmsBundle\Admin\WarehousePropertyAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Склады", label: "Свойства" }
+        arguments:
+            - ~
+            - Anton\WmsBundle\Entity\WarehouseProperty
+            - ~
+    app.admin.warehouse_property_values:
+        class: Anton\WmsBundle\Admin\WarehousePropertyValuesAdmin
+        tags:
+            - { name: sonata.admin, show_in_dashboard: false, manager_type: orm, group: "Склады", label: "Значения свойств" }
+        arguments:
+            - ~
+            - Anton\WmsBundle\Entity\WarehousePropertyValue
+            - ~
+    app.admin.map:
+        class: Anton\WmsBundle\Admin\MapAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "WMS", label: "Карта" }
+        arguments:
+            - ~
+            - Anton\WmsBundle\Entity\Map
             - ~
