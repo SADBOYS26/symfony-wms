@@ -34,7 +34,7 @@ services:
     app.admin.property_values:
         class: Anton\WmsBundle\Admin\PropertyValuesAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "WMS", label: "Значения свойств" }
+            - { name: sonata.admin, show_in_dashboard: false, manager_type: orm, group: "WMS", label: "Значения свойств" }
         arguments:
             - ~
             - Anton\WmsBundle\Entity\ProductPropertyValue

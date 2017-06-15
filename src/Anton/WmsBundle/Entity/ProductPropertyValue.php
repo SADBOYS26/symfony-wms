@@ -40,7 +40,7 @@ class ProductPropertyValue
     /**
      * @var Property
      *
-     * @ORM\ManyToOne(targetEntity="Property", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Property", inversedBy="propertyValues", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $property;

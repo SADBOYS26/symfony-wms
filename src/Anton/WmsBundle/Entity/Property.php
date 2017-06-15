@@ -36,6 +36,18 @@ class Property
      */
     private $categories;
 
+    /**
+     * @var Product[]|ArrayCollection
+     *
+     * @ORM\OneToMany(
+     *      targetEntity="ProductPropertyValue",
+     *      mappedBy="property",
+     *      orphanRemoval=true,
+     *      cascade={"persist"}
+     * )
+     */
+    private $propertyValues;
+
     public function __toString()
     {
         return ($this->name) ?: '';
@@ -44,6 +56,7 @@ class Property
     public function __construct()
     {
         $this->categories = new ArrayCollection();
+        $this->propertyValues = new ArrayCollection();
     }
 
     /**

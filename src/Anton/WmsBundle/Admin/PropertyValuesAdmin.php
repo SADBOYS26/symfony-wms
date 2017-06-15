@@ -35,8 +35,14 @@ class PropertyValuesAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper): void
     {
         $listMapper
-            ->add('id', 'text', [
+            ->add('property', 'text', [
                 'label' => 'Название'
+            ])
+            ->add('product', 'text', [
+                'label' => 'Товар'
+            ])
+            ->add('value', 'text', [
+                'label' => 'Значение'
             ])
             ->add('_action', null, [
                 'label' => ' ',
