@@ -20,6 +20,13 @@ class AdminController extends Controller
         ]);
     }
 
+    public function productShipmentAction()
+    {
+        $products = $this->getDoctrine()->getRepository(Product::class)->getMappedProduct();
+
+        return $this->render('@AntonWms/product.shipment.html.twig', ['products' => $products]);
+    }
+
     public function getWarehouseAndProductByCategoryAction(WarehouseCategory $warehouseCategory)
     {
         $warehouses = $this
@@ -73,6 +80,21 @@ class AdminController extends Controller
             $em = $this->getDoctrine()->getManager();
             $map->setProduct($product);
             $em->persist($map);
+            $em->flush();
+            $response['result'] = true;
+        } catch (\Exception $exception) {
+            $response['result'] = false;
+        }
+
+        return new JsonResponse($response);
+    }
+
+    public function removeIntoMapAction(Product $product)
+    {
+        try{
+            $product->removeMap();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($product);
             $em->flush();
             $response['result'] = true;
         } catch (\Exception $exception) {

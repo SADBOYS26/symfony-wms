@@ -107,4 +107,20 @@ $(document).ready(function () {
             alert('Не выбрано место на складе или товар');
         }
     });
+
+    $(document).on('click', '#product__shipment', function () {
+        var id = $('#product-mapped').val();
+        $.ajax({
+            url: '/product-shipment/'+id,
+            type: 'post',
+            success: function (response) {
+                if(response.result === true) {
+                    alert('Товар успешно отгружен');
+                    location.reload();
+                } else {
+                    alert('Произошла ошибка отгрузки товара');
+                }
+            }
+        })
+    });
 });

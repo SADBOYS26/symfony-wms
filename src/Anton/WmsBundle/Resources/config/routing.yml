@@ -2,6 +2,10 @@ product_receipt:
   path: /product-receipt/
   defaults: { _controller: AntonWmsBundle:Admin:productReceipt }
 
+product_shipment:
+  path: /product-shipment/
+  defaults: { _controller: AntonWmsBundle:Admin:productShipment }
+
 get_warehouses:
   path: /get-warehouses/{id}
   defaults: { _controller: AntonWmsBundle:Admin:getWarehouseAndProductByCategory }
@@ -17,3 +21,7 @@ get_product:
 add_product_to_map:
   path: /add-to-map/
   defaults: { _controller: AntonWmsBundle:Admin:addToMap }
+
+remove_product_into_map:
+  path: /product-shipment/{id}
+  defaults: { _controller: AntonWmsBundle:Admin:removeIntoMap}

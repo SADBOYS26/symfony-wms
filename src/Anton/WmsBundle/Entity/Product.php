@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Product
  *
  * @ORM\Table(name="product")
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="Anton\WmsBundle\Repository\ProductRepository")
  * @ORM\HasLifecycleCallbacks()
  */
 class Product
@@ -184,6 +184,14 @@ class Product
     {
         $map->setProduct($this);
         $this->map = $map;
+
+        return $this;
+    }
+
+    public function removeMap()
+    {
+        $this->map->setProduct(null);
+        $this->map = null;
 
         return $this;
     }

@@ -101,6 +101,8 @@ sonata_admin:
             - app.admin.user
             - route:        product_receipt
               label:        "Приход товара"
+            - route:        product_shipment
+              label:        "Отгрузка товара"
       products:
         label: "Продукты"
         items:
