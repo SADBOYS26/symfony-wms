@@ -48,6 +48,9 @@ class ProductAdmin extends AbstractAdmin
         $datagridMapper
             ->add('name', null, [
                 'label' => 'Название'
+            ])
+            ->add('category', null, [
+                'label' => 'Категория'
             ]);
     }
     protected function configureListFields(ListMapper $listMapper): void
@@ -55,6 +58,9 @@ class ProductAdmin extends AbstractAdmin
         $listMapper
             ->add('name', 'text', [
                 'label' => 'Название'
+            ])
+            ->add('category', 'sonata_type_model_list', [
+                'label' => 'Категория'
             ])
             ->add('_action', null, [
                 'label' => ' ',
@@ -71,9 +77,12 @@ class ProductAdmin extends AbstractAdmin
             ->add('name', 'text', [
                 'label' => 'Название'
             ])
-            ->add('propertyValues', 'sonata_type_model', [
-                'label' => 'Значения свойств',
-                'multiple' => true
-            ]);
+            ->add('category', 'sonata_type_model_list', [
+                'label' => 'Категория'
+            ])
+            ->add('propertyValues', 'sonata_type_collection', [
+                'label' => 'Значения свойств'
+            ])
+            ->add('map', 'text', ['label' => 'Место на складе']);
     }
 }

@@ -41,7 +41,7 @@ class Map
     /**
      * @var Product
      *
-     * @ORM\OneToOne(targetEntity="Anton\WmsBundle\Entity\Product")
+     * @ORM\OneToOne(targetEntity="Anton\WmsBundle\Entity\Product", inversedBy="map")
      */
     private $product;
 
@@ -52,7 +52,7 @@ class Map
 
     public function __toString()
     {
-        return $this->coordinate ?: '';
+        return $this->coordinate ? $this->coordinate . ' на складе ' . $this->warehouse->getName() : '';
     }
 
     public function __construct()

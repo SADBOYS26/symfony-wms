@@ -4,4 +4,16 @@ product_receipt:
 
 get_warehouses:
   path: /get-warehouses/{id}
-  defaults: { _controller: AntonWmsBundle:Admin:getWarehouseByCategory }
+  defaults: { _controller: AntonWmsBundle:Admin:getWarehouseAndProductByCategory }
+
+get_warehouse:
+  path: /get-warehouse/{id}
+  defaults: { _controller: AntonWmsBundle:Admin:getWarehouseInfo }
+
+get_product:
+  path: /get-product/{id}
+  defaults: { _controller: AntonWmsBundle:Admin:getProductInfo }
+
+add_product_to_map:
+  path: /add-to-map/
+  defaults: { _controller: AntonWmsBundle:Admin:addToMap }

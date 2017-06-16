@@ -1,3 +1,10 @@
 .login__form{
     width: 300px;
 }
+.product-receipt__send.uk-grid{
+    display: none;
+    margin-top: 0;
+}
+.product-receipt__send button{
+    margin-top: 10px;
+}

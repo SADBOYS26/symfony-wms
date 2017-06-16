@@ -1,0 +1,17 @@
+<table class="uk-table">
+    <tr>
+        <td colspan="2"><h5>Информация о товаре</h5></td>
+    </tr>
+    <tr>
+        <td><b>Категория : </b></td>
+        <td><b>{{ product.category.name }}</b></td>
+    </tr>
+    {% for prop in product.propertyValues %}
+        {% if prop.value %}
+        <tr>
+            <td>{{ prop.property.name }} : </td>
+            <td>{{ prop.value }}</td>
+        </tr>
+    {% endif %}
+    {% endfor %}
+</table>

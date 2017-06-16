@@ -58,6 +58,13 @@ class Product
     private $propertyValues;
 
     /**
+     * @var Map
+     *
+     * @ORM\OneToOne(targetEntity="Anton\WmsBundle\Entity\Map", mappedBy="product")
+     */
+    private $map;
+
+    /**
      * @ORM\PrePersist
      * @Orm\PreUpdate
      */
@@ -166,6 +173,19 @@ class Product
             $props->add($propertyValue->getProperty());
         }
         return $props;
+    }
+
+    public function getMap()
+    {
+        return $this->map;
+    }
+
+    public function setMap(Map $map)
+    {
+        $map->setProduct($this);
+        $this->map = $map;
+
+        return $this;
     }
 }
 

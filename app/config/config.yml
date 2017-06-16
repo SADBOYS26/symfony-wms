@@ -96,8 +96,7 @@ sonata_admin:
   dashboard:
     groups:
       WMS:
-        label:                ~
-        label_catalogue:      ~
+        label: "WMS"
         items:
             - app.admin.user
             - route:        product_receipt

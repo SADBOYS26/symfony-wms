@@ -52,7 +52,7 @@ class Category
     /**
      * @var WarehouseCategory[]|ArrayCollection
      *
-     * @ORM\ManyToMany(targetEntity="Anton\WmsBundle\Entity\WarehouseCategory", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="Anton\WmsBundle\Entity\WarehouseCategory", cascade={"persist"}, inversedBy="productCategory")
      * @ORM\JoinTable(name="category_warehouse_category")
      */
     private $warehouseCategory;

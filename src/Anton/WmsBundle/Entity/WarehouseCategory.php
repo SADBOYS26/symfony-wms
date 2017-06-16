@@ -47,10 +47,18 @@ class WarehouseCategory
      */
     private $warehouse;
 
+    /**
+     * @var Category[]|ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="Anton\WmsBundle\Entity\Category", cascade={"persist"}, mappedBy="warehouseCategory")
+     */
+    private $productCategory;
+
     public function __construct()
     {
         $this->properties = new ArrayCollection();
         $this->warehouse = new ArrayCollection();
+        $this->productCategory = new ArrayCollection();
     }
 
     public function __toString()
@@ -101,12 +109,33 @@ class WarehouseCategory
         return $this->warehouse;
     }
 
-    public function addProduct(Warehouse $warehouse)
+    public function addWarehouse(Warehouse $warehouse)
     {
         $this->warehouse->add($warehouse);
         $warehouse->setCategory($this);
 
         return $this;
+    }
+
+    public function getProductCategory()
+    {
+        return $this->productCategory;
+    }
+
+    /**
+     * @return Product[]|ArrayCollection
+     */
+    public function getAvailableProducts()
+    {
+        $products = new ArrayCollection();
+        foreach ($this->productCategory as $category){
+            foreach ($category->getProducts() as $product){
+                if(empty($product->getMap())){
+                    $products->add($product);
+                }
+            }
+        }
+        return $products;
     }
 }
 

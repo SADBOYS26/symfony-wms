@@ -173,6 +173,9 @@ class Warehouse
         return $this;
     }
 
+    /**
+     * @return Map[]|ArrayCollection
+     */
     public function getFreeMap()
     {
         $freeMap = new ArrayCollection();

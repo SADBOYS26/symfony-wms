@@ -1,0 +1,17 @@
+<table class="uk-table">
+    <tr>
+        <td colspan="2"><h5>Информация по складу</h5></td>
+    </tr>
+    {% for prop in warehouse.propertyValues %}
+        {% if prop.value %}
+        <tr>
+            <td>{{ prop.property.name }} : </td>
+            <td>{{ prop.value }}</td>
+        </tr>
+    {% endif %}
+    {% endfor %}
+    <tr>
+        <td><b>Свободных мест : </b></td>
+        <td><b>{{ warehouse.freeMapCount }}</b></td>
+    </tr>
+</table>
