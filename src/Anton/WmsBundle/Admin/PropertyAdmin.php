@@ -2,13 +2,12 @@
 
 namespace Anton\WmsBundle\Admin;
 
-use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 
-class PropertyAdmin extends AbstractAdmin
+class PropertyAdmin extends BaseAdmin
 {
     protected function configureFormFields(FormMapper $formMapper): void
     {
@@ -27,6 +26,7 @@ class PropertyAdmin extends AbstractAdmin
     }
     protected function configureListFields(ListMapper $listMapper): void
     {
+        parent::configureListFields($listMapper);
         $listMapper
             ->add('name', 'text', [
                 'label' => 'Название'

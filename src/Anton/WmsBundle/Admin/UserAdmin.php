@@ -2,13 +2,13 @@
 
 namespace Anton\WmsBundle\Admin;
 
-use Sonata\AdminBundle\Admin\AbstractAdmin;
+
 use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 
-class UserAdmin extends AbstractAdmin
+class UserAdmin extends BaseAdmin
 {
     protected function getRoles()
     {
@@ -71,6 +71,8 @@ class UserAdmin extends AbstractAdmin
     }
     protected function configureListFields(ListMapper $listMapper): void
     {
+
+        parent::configureListFields($listMapper);
         $listMapper
             ->add('username', 'text', [
                 'label' => 'Логин'

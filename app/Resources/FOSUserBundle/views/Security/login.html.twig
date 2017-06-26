@@ -11,6 +11,7 @@
     {% endif %}
 <div class="uk-flex uk-flex-middle uk-flex-center uk-text-center uk-height-1-1">
     <form class="uk-form login__form uk-vertical-align-middle" action="{{ path("fos_user_security_check") }}" method="post">
+        <img class="uk-margin-bottom" src="/assets/img/SQLad.png">
         {% if csrf_token %}
             <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
         {% endif %}

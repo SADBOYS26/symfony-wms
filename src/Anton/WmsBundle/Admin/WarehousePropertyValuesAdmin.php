@@ -2,13 +2,11 @@
 
 namespace Anton\WmsBundle\Admin;
 
-use Sonata\AdminBundle\Admin\AbstractAdmin;
-use Sonata\AdminBundle\Show\ShowMapper;
-use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\AdminBundle\Datagrid\ListMapper;
-use Sonata\AdminBundle\Datagrid\DatagridMapper;
 
-class WarehousePropertyValuesAdmin extends AbstractAdmin
+use Sonata\AdminBundle\Form\FormMapper;
+
+
+class WarehousePropertyValuesAdmin extends BaseAdmin
 {
     protected function configureFormFields(FormMapper $formMapper): void
     {

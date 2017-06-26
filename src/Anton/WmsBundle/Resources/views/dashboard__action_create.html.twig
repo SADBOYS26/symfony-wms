@@ -1,0 +1,17 @@
+{% if admin.subClasses is empty %}
+    <a class="uk-button uk-button-default" href="{{ action.url }}">
+        {{ action.label|trans({}, action.translation_domain|default('SonataAdminBundle')) }}
+    </a>
+{% else %}
+    <a class="uk-button uk-button-default dropdown-toggle" data-toggle="dropdown" href="#">
+        {{ action.label|trans({}, action.translation_domain|default('SonataAdminBundle')) }}
+        <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+        {% for subclass in admin.subclasses|keys %}
+            <li>
+                <a href="{{ admin.generateUrl('create', {'subclass': subclass}) }}">{{ subclass|trans({}, action.translation_domain|default('SonataAdminBundle')) }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}

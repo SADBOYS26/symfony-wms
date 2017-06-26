@@ -11,3 +11,28 @@
 #product__shipment{
     margin-top: 10px;
 }
+.logo img{
+    max-width: 150px;
+}
+
+img.uk-margin-bottom{
+    width: 200px;
+}
+
+.table-name{
+    width: 40%;
+    vertical-align: middle !important;
+}
+
+.box{
+    position: relative;
+    background: #ffffff;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.uk-button{
+    margin: 10px 0;
+    width: 100%;
+}
+

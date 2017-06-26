@@ -1,0 +1,40 @@
+{% extends "SonataAdminBundle:Block:block_admin_list.html.twig" %}
+
+{% block block %}
+    {% for group in groups %}
+        {% set display = (group.roles is empty or is_granted('ROLE_SUPER_ADMIN') ) %}
+        {% for role in group.roles if not display %}
+            {% set display = is_granted(role)%}
+        {% endfor %}
+
+        {% if display %}
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">{{ group.label|trans({}, group.label_catalogue) }}</h3>
+                </div>
+                <div class="box-body">
+                    <table class="uk-table uk-table-responsive uk-table-divider">
+                        <tbody>
+                        {% for admin in group.items %}
+                            {% if admin.dashboardActions|length > 0 %}
+                                <tr>
+                                    <td class="table-name">
+                                        {{ admin.label|trans({}, admin.translationdomain) }}
+                                    </td>
+                                    <td>
+                                        <div class="btn-group">
+                                            {% for action in admin.dashboardActions %}
+                                                {% include action.template|default('AntonWmsBundle::dashboard__action.html.twig') with {'action': action} %}
+                                            {% endfor %}
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

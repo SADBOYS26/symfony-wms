@@ -12,7 +12,7 @@ parameters:
 
 framework:
     #esi:             ~
-    translator: ~
+    translator: { fallbacks: [ru] }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -93,12 +93,19 @@ sonata_block:
 sonata_admin:
   templates:
     layout:  AntonWmsBundle::admin.base.html.twig
+    dashboard: AntonWmsBundle::dashboard.html.twig
+    list_block: AntonWmsBundle::block_admin_list.html.twig
+    action_create: AntonWmsBundle::dashboard__action_create.html.twig
   dashboard:
     groups:
-      WMS:
-        label: "WMS"
+
+      USR:
+        label: "Пользователи"
         items:
-            - app.admin.user
+          - app.admin.user
+      WMS:
+        label: "Приход и Отгрузка"
+        items:
             - route:        product_receipt
               label:        "Приход товара"
             - route:        product_shipment
