@@ -6,9 +6,6 @@
 {% block fos_user_content %}
     {% trans_default_domain 'FOSUserBundle' %}
 
-    {% if error %}
-        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
 <div class="uk-flex uk-flex-middle uk-flex-center uk-text-center uk-height-1-1">
     <form class="uk-form login__form uk-vertical-align-middle" action="{{ path("fos_user_security_check") }}" method="post">
         <img class="uk-margin-bottom" src="/assets/img/SQLad.png">
@@ -30,6 +27,9 @@
         <div class="uk-form-row">
             <input class="uk-button uk-button-default" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
         </div>
+        {% if error %}
+            <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
     </form>
 </div>
 {% endblock fos_user_content %}

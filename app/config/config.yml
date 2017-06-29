@@ -100,6 +100,8 @@ sonata_admin:
     groups:
 
       USR:
+        keep_open: true
+        on_top: true
         label: "Пользователи"
         items:
           - app.admin.user
@@ -111,7 +113,7 @@ sonata_admin:
             - route:        product_shipment
               label:        "Отгрузка товара"
       products:
-        label: "Продукты"
+        label: "Товары"
         items:
           - app.admin.product
           - app.admin.category

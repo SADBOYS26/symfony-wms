@@ -10,7 +10,18 @@ class MapAdmin extends BaseAdmin
     {
         $formMapper
             ->add('coordinate', 'text', [
-                'label' => 'Координата'
-            ]);
+                'label' => 'Координата',
+            ])
+            ->add('product', 'sonata_type_model', [
+                'label' => 'Товар',
+                'attr' => array(
+                    'readonly' => true,
+                    'disabled' => true
+                ),
+                'by_reference' => false,
+                'btn_add' => false,
+                'required' => false,
+                'disabled' => false
+            ]);;
     }
 }

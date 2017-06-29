@@ -4,6 +4,7 @@ namespace Anton\WmsBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Product
@@ -26,6 +27,7 @@ class Product
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
@@ -33,13 +35,14 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(name="barcode", type="string", length=255)
+     * @ORM\Column(name="barcode", type="string", length=13, nullable=true)
      */
     private $barcode;
 
     /**
      * @var Category
      *
+     * @Assert\NotBlank()
      * @ORM\ManyToOne(targetEntity="Category", cascade={"persist"}, inversedBy="products")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -85,7 +88,7 @@ class Product
 
     public function __toString()
     {
-        return ($this->name) ?: '';
+        return ($this->name) ?: '   ';
     }
 
     /**

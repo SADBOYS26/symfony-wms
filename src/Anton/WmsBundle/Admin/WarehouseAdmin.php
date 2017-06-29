@@ -18,7 +18,8 @@ class WarehouseAdmin extends BaseAdmin
                 'required' => false
             ])
             ->add('category', 'sonata_type_model_list', [
-                'label' => 'Категория'
+                'label' => 'Категория',
+                'btn_delete' => false
             ])
             ->add('propertyValues', 'sonata_type_collection', array(
                 'label' => 'Значения свойств',
@@ -42,7 +43,7 @@ class WarehouseAdmin extends BaseAdmin
                 'label' => 'Карта',
                 'by_reference' => false,
                 'type_options' => array(
-                    'delete' => true
+                    'delete' => false
                 )
             ), array(
                 'edit' => 'inline',

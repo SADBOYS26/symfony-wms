@@ -10,7 +10,7 @@ services:
     app.admin.product:
         class: Anton\WmsBundle\Admin\ProductAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Продукты", label: "Продукты" }
+            - { name: sonata.admin, manager_type: orm, group: "Продукты", label: "Товары" }
         arguments:
             - ~
             - Anton\WmsBundle\Entity\Product
@@ -18,7 +18,7 @@ services:
     app.admin.category:
         class: Anton\WmsBundle\Admin\CategoryAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Продукты", label: "Категории" }
+            - { name: sonata.admin, manager_type: orm, group: "Продукты", label: "Категории товаров" }
         arguments:
             - ~
             - Anton\WmsBundle\Entity\Category
@@ -26,7 +26,7 @@ services:
     app.admin.property:
         class: Anton\WmsBundle\Admin\PropertyAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Продукты", label: "Свойства" }
+            - { name: sonata.admin, manager_type: orm, group: "Продукты", label: "Свойства категорий товаров" }
         arguments:
             - ~
             - Anton\WmsBundle\Entity\Property
@@ -50,7 +50,7 @@ services:
     app.admin.warehouse_category:
         class: Anton\WmsBundle\Admin\WarehouseCategoryAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Склады", label: "Категории" }
+            - { name: sonata.admin, manager_type: orm, group: "Склады", label: "Категории складов" }
         arguments:
             - ~
             - Anton\WmsBundle\Entity\WarehouseCategory
@@ -58,7 +58,7 @@ services:
     app.admin.warehouse_property:
         class: Anton\WmsBundle\Admin\WarehousePropertyAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Склады", label: "Свойства" }
+            - { name: sonata.admin, manager_type: orm, group: "Склады", label: "Свойства категорий складов" }
         arguments:
             - ~
             - Anton\WmsBundle\Entity\WarehouseProperty

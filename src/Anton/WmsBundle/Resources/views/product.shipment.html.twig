@@ -5,7 +5,7 @@
     <select id="product-mapped">
         <option>Не выбрано</option>
         {% for product in products %}
-            <option value="{{ product.id }}">{{ product.name }} : {{ product.barcode }}</option>
+            <option value="{{ product.id }}">{{ product.name }} : {{ product.barcode }}: {{ product.map.warehouse.name }}</option>
         {% endfor %}
     </select>
     <button id="product__shipment" class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">Отгрузить</button>

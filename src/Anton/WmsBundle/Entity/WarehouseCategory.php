@@ -4,6 +4,7 @@ namespace Anton\WmsBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Table(name="warehouse_category")
@@ -23,12 +24,14 @@ class WarehouseCategory
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="name", type="string", length=255, unique=true)
      */
     private $name;
 
     /**
      * @var WarehouseProperty[]|ArrayCollection
+     *
      *
      * @ORM\ManyToMany(targetEntity="Anton\WmsBundle\Entity\WarehouseProperty", inversedBy="categories", cascade={"persist"})
      * @ORM\JoinTable(name="warehouse_category_property")

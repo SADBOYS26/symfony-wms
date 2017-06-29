@@ -21,7 +21,8 @@ class ProductAdmin extends BaseAdmin
                 'label' => 'Штрихкод'
             ])
             ->add('category', 'sonata_type_model_list', [
-                'label' => 'Категория'
+                'label' => 'Категория',
+                'btn_delete' => false
             ])
             ->add('propertyValues', 'sonata_type_collection', array(
                 'label' => 'Значения свойств',

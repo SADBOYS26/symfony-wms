@@ -4,6 +4,7 @@ namespace Anton\WmsBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Warehouse
@@ -26,6 +27,7 @@ class Warehouse
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
@@ -33,6 +35,7 @@ class Warehouse
     /**
      * @var WarehouseCategory
      *
+     * @Assert\NotBlank()
      * @ORM\ManyToOne(targetEntity="Anton\WmsBundle\Entity\WarehouseCategory", cascade={"persist"}, inversedBy="warehouse")
      * @ORM\JoinColumn(nullable=false)
      */
